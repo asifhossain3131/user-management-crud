@@ -9,6 +9,7 @@ import AuthProvider from './providers/AuthProvider'
 import CurrentUsers from './pages/private/private pages/CurrentUsers'
 import NewUsers from './pages/private/private pages/new users/NewUsers'
 import UpdateUsers from './pages/private/update users/UpdateUsers'
+import PrivateRoute from './pages/private/private routes/PrivateRoute'
 
 const router=createBrowserRouter([
   {
@@ -16,13 +17,18 @@ const router=createBrowserRouter([
     element:<User></User>,
     children:[
       {
-path:'/',
+path:'/currentusers',
 element:<CurrentUsers></CurrentUsers>,
-loader:()=>fetch('http://localhost:5000/users')
+loader:()=>fetch('http://localhost:5000/users',{
+  method:'GET',
+  headers:{
+    authorization:`bearer ${localStorage.getItem('user-token')}`
+  }
+})
       },
       {
-path:'/newusers',
-element:<NewUsers></NewUsers>
+path:'/',
+element:<PrivateRoute><NewUsers></NewUsers></PrivateRoute>
       },
       {
 path:'/updateuser/:id',

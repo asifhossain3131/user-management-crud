@@ -29,7 +29,7 @@ const NewUsers = () => {
     }
     return (
         <>
-<button onClick={()=>navigate(-1)} className="btn btn-outline btn-primary">All users</button>
+<button onClick={()=>navigate('/currentusers')} className="btn btn-outline btn-primary">All users</button>
 
 <div className='w-9/12 mx-auto mt-12'> 
     <h1 className='font-semibold text-4xl text-center'>New user</h1>
