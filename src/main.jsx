@@ -8,6 +8,7 @@ import Register from './pages/Register/Register'
 import AuthProvider from './providers/AuthProvider'
 import CurrentUsers from './pages/private/private pages/CurrentUsers'
 import NewUsers from './pages/private/private pages/new users/NewUsers'
+import UpdateUsers from './pages/private/update users/UpdateUsers'
 
 const router=createBrowserRouter([
   {
@@ -16,11 +17,17 @@ const router=createBrowserRouter([
     children:[
       {
 path:'/',
-element:<CurrentUsers></CurrentUsers>
+element:<CurrentUsers></CurrentUsers>,
+loader:()=>fetch('http://localhost:5000/users')
       },
       {
 path:'/newusers',
 element:<NewUsers></NewUsers>
+      },
+      {
+path:'/updateuser/:id',
+element:<UpdateUsers></UpdateUsers>,
+loader:({params})=>fetch(`http://localhost:5000/users/${params.id}`)
       },
      {
       path:'/login',
