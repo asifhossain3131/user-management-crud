@@ -22,7 +22,7 @@ const CurrentUsers = () => {
     })
     .then(result=>{
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/users/${id}`,{
+        fetch(`https://user-management-server-eight.vercel.app/users/${id}`,{
           method:'DELETE'
         })
         .then(res=>res.json())

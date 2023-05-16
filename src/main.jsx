@@ -19,7 +19,7 @@ const router=createBrowserRouter([
       {
 path:'/currentusers',
 element:<CurrentUsers></CurrentUsers>,
-loader:()=>fetch('http://localhost:5000/users',{
+loader:()=>fetch('https://user-management-server-eight.vercel.app/users',{
   method:'GET',
   headers:{
     authorization:`bearer ${localStorage.getItem('user-token')}`
@@ -33,7 +33,7 @@ element:<PrivateRoute><NewUsers></NewUsers></PrivateRoute>
       {
 path:'/updateuser/:id',
 element:<UpdateUsers></UpdateUsers>,
-loader:({params})=>fetch(`http://localhost:5000/users/${params.id}`)
+loader:({params})=>fetch(`https://user-management-server-eight.vercel.app/users/${params.id}`)
       },
      {
       path:'/login',

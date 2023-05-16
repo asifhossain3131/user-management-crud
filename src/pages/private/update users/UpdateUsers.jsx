@@ -12,14 +12,14 @@ const UpdateUsers = () => {
         const email=form.email.value 
         const gender=form.gender.value
         const status=form.status.value
-        const user={name,email,gender,status}
+        const updatedUser={name,email,gender,status}
    
-        fetch(`http://localhost:5000/users/${user._id}`,{
+        fetch(`https://user-management-server-eight.vercel.app/users/${user._id}`,{
             method:'PUT',
             headers:{
                 'content-type':'application/json'
             },
-            body:JSON.stringify(user)
+            body:JSON.stringify(updatedUser)
         })
         .then(res=>res.json())
         .then(data=>{

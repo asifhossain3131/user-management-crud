@@ -14,7 +14,7 @@ const NewUsers = () => {
         const status=form.status.value
         const user={name,email,gender,status}
    
-        fetch('http://localhost:5000/users',{
+        fetch('https://user-management-server-eight.vercel.app/users',{
             method:'POST',
             headers:{
                 'content-type':'application/json'
